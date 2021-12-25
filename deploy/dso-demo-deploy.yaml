@@ -26,7 +26,7 @@ spec:
         vault.hashicorp.com/agent-inject-secret-database: 'secret/dso-demo/database'
         vault.hashicorp.com/agent-inject-template-database: |
           {{- with secret "secret/dso-demo/database" -}}
-            mysql -u {{ .Data.data.user }} -p {{.Data.data.password }} -h database:3306 mydb
+            mysql -u {{ .Data.data.username }} -p {{.Data.data.password }} -h database:3306 mydb
           {{- end -}}
     spec:
       serviceAccountName: dso-demo
