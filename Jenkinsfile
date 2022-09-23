@@ -1,7 +1,7 @@
 pipeline {
   environment {
-    ARGO_SERVER = '104.197.60.253:32100'
-    DEV_URL = 'http://104.197.60.253:30080/'
+    ARGO_SERVER = '34.132.38.164:32100'
+    DEV_URL = 'http://34.132.38.164:30080/'
   }
   agent {
     kubernetes {
