@@ -45,7 +45,7 @@ spec:
         - cat
       tty: true
     - name: licensefinder
-      image: licensefinder/license_finder:6.12.0
+      image: licensefinder/license_finder
       command:
         - cat
       tty: true
