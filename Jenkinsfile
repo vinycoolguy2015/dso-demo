@@ -1,7 +1,7 @@
 pipeline {
   environment {
-    ARGO_SERVER = '34.132.38.164:32100'
-    DEV_URL = 'http://34.132.38.164:30080/'
+    ARGO_SERVER = '104.197.60.253:32100'
+    DEV_URL = 'http://104.197.60.253:30080/'
   }
   agent {
     kubernetes {
@@ -46,7 +46,19 @@ pipeline {
             }
         }
     }
-        
+        stage('OSS License Checker') {
+          steps {
+            container('licensefinder') {
+              sh 'ls -al'
+              sh '''#!/bin/bash --login
+              /bin/bash --login
+              rvm use default
+              gem install license_finder
+              license_finder
+              '''
+            }
+          }
+        }
         stage('Generate SBOM') {
           steps {
             container('maven') {
